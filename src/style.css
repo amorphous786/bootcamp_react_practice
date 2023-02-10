@@ -1,0 +1,42 @@
+* {
+      font-family: Helvetica, sans-serif;
+      box-sizing: border-box;
+}
+
+.cards {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      background-color: #EEE;
+      align-content: center;
+}
+
+.cards>div {
+      width: 19%;
+      margin-left: 5px;
+
+}
+
+.cards>div:hover {
+      background-color: aquamarine;
+}
+
+h4 {
+      background-color: black;
+      color: white;
+      padding: 10px 0px;
+      height: 40px;
+      margin: 5px;
+}
+
+.cards>div>div {
+      text-align: justify;
+      margin: 5px;
+      background-color: antiquewhite;
+      padding: 5px;
+}
+
+
+.cards>div>div:hover {
+      background-color: pink;
+}

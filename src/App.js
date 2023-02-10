@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// import Friday2 from "./Friday2.js";
+// import Friday2PracticeHome from "./Friday2PracticeHome.js";
+// import Hello from  "./Hello.js" ;
+// import Welcome from "./Welcome.js";
+// import File from './File.js'
+// import PracticeB1 from "./PracticeB1.js";
+import AddBookForm from "./AddBookForm.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div >
+      {/* <Hello/>
+    <Welcome /> */}
+          {/* <Friday2/> */}
+          {/* <Friday2PracticeHome/> */}
+          {/* <PracticeB1/> */}
+          <AddBookForm/>
+
+          {/* <File/> */}
+      </div>
   );
 }
 

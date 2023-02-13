@@ -4,19 +4,15 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState,useEffect } from 'react';
 import ListOfBooks from './ListOfBooks';
+import axios from 'axios';
 function AddBookForm() {
 
       const [title,setTitle] = useState("");
       const [author,setAuthor] = useState("");
-      // const handleChangeTitle = (event) =>{
-      //       setTitle(event.target.value);
-      // }
-      // const handleChangeAuthor = (event) =>{
-      //       setAuthor(event.target.value);
-      // }
+      const [books,setBooks]=useState([]);
       const addFunction =async (e)=>{
             e.preventDefault();
-             await fetch("http://localhost:4000/books",{
+            const res =  await fetch("http://localhost:4000/books",{
                   method:"POST",
                    headers: {
                   'Content-Type': 'application/json'
@@ -24,8 +20,24 @@ function AddBookForm() {
                  body: JSON.stringify({
                   title: title,
                   author: author
-                })});
+                })}).then(res => res.json()).catch(error => {console.log("Got some issue",error)});
+            //     [{...},{...},{...}...]
+            setBooks(res);
+
       }
+
+      const booksFunction = async ()=>{
+            // const response = await axios.get("http://localhost:4000").then(
+            //                                     response => response.json())
+            //                                     .catch(
+            //                                     error => {console.log(error)})
+            // setBooks(response);
+            const res = await fetch("http://localhost:4000/").
+                              then(res => res.json()).
+                              catch(error => {console.log("error agay",error)})
+                  setBooks(res);
+      }
+      useEffect(()=>{booksFunction()},[])
   return (
       <>
             <Form onSubmit={addFunction}>
@@ -43,7 +55,7 @@ function AddBookForm() {
                   </Button>
 
             </Form>
-      <ListOfBooks/>
+      <ListOfBooks booksData={books}/>
     </>
   )
 }
